@@ -18,6 +18,4 @@ public class Pasaporte {
     @OneToOne(mappedBy = "pasaporte")
     private Pasajero pasajero;
 
-
-
 }
