@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface AerolineaRepository extends JpaRepository<Aerolinea, Long> {
     // Query Methods
-    List<Aerolinea> findByNombreAerolinea(String nombre);
+    List<Aerolinea> findByNombre(String nombre);
 
-    List<Aerolinea> findByNombreAerolineaContaining(String nombre);
+    List<Aerolinea> findByNombreContaining(String nombre);
 
-    List<Aerolinea> findByNombreAerolineaOrderByNombreAerolineaDesc(String nombre);
+    List<Aerolinea> findByNombreOrderByNombreDesc(String nombre);
 
-    List<Aerolinea> findByNombreAerolineaEndingWith(String nombre); //
+    List<Aerolinea> findByNombreEndingWith(String nombre); //
 
-    List<Aerolinea> findByNombreAerolineaIgnoreCase(String nombre); //
+    List<Aerolinea> findByNombreIgnoreCase(String nombre); //
 
 
     //JPQL

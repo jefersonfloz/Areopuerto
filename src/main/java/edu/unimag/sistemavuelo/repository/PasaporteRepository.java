@@ -4,19 +4,20 @@ import edu.unimag.sistemavuelo.entities.Pasaporte;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;
+import java.util.Optional;
 
 public interface PasaporteRepository extends JpaRepository<Pasaporte, Long> {
 
     // Query Methods
-    List<Pasaporte> findByIdPasaporte(Long id);
+    Optional<Pasaporte> findById(Long id);
 
-    List<Pasaporte> findByIdPasaporteGreaterThan(Long id);
+    List<Pasaporte> findByIdGreaterThan(Long id);
 
-    List<Pasaporte> findByIdPasaporteLessThan(Long id);
+    List<Pasaporte> findByIdLessThan(Long id);
 
-    List<Pasaporte> findByIdPasaporteBetween(Long start, Long end);
+    List<Pasaporte> findByIdBetween(Long start, Long end);
 
-    List<Pasaporte> findByIdPasaporteOrderByIdDesc(Long id);
+    List<Pasaporte> findByIdOrderByIdDesc(Long id);
 
     // JPQL
     @Query("SELECT p FROM Pasaporte p WHERE p.pasajero IS NULL")
