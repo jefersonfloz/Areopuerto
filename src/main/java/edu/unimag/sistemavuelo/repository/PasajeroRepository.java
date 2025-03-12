@@ -4,9 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;import java.util.Optional;
 
-
 public interface PasajeroRepository extends JpaRepository<Pasajero, Long> {
-    // JPQL
+
     // Buscar un pasajero por su número de identificación (nid)
     @Query("SELECT p FROM Pasajero p WHERE p.nid = ?1")
     Optional<Pasajero> buscarPorNid(String nid);
@@ -27,8 +26,6 @@ public interface PasajeroRepository extends JpaRepository<Pasajero, Long> {
     @Query("SELECT p.id, p.nombre FROM Pasajero p ORDER BY p.nombre ASC")
     List<Object[]> obtenerIdYNombreOrdenados();
 
-
-    // Query Methods
     // Buscar un pasajero por su nombre exacto
     List<Pasajero> findByNombre(String nombre);
 
@@ -43,5 +40,4 @@ public interface PasajeroRepository extends JpaRepository<Pasajero, Long> {
 
     // Buscar pasajeros que no tienen pasaporte asignado
     List<Pasajero> findByPasaporteIsNull();
-
 }

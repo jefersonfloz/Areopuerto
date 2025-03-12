@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
-    //JPQL
+    // ====================== @Query Methods ======================
 
     // Buscar una reserva por su código único
     @Query("SELECT r FROM Reserva r WHERE r.codigoReserva = ?1")
@@ -32,8 +32,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Long> {
     @Query("SELECT CASE WHEN COUNT(r) > 0 THEN TRUE ELSE FALSE END FROM Reserva r WHERE r.pasajero.id = ?1 AND r.vuelo.id = ?2")
     boolean existeReservaPorPasajeroYVuelo(Long pasajeroId, Long vueloId);
 
-
-    //Query Methods
+    // ====================== Query Methods ======================
 
     // Buscar una reserva por su código único
     Optional<Reserva> findByCodigoReserva(UUID codigoReserva);
