@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface VueloReposity extends JpaRepository<Vuelo, Long> {
+public interface VueloRepository extends JpaRepository<Vuelo, Long> {
     // Query Methods
     List<Vuelo> findByOrigenAndDestino(String origen, String destino);
 
@@ -39,4 +39,5 @@ public interface VueloReposity extends JpaRepository<Vuelo, Long> {
     // Contar cuántos vuelos hay entre dos ciudades
     @Query("SELECT COUNT(v) FROM Vuelo v WHERE v.origen = ?1 AND v.destino = ?2")
     long contarVuelosEntreCiudades(String origen, String destino);
+
 }

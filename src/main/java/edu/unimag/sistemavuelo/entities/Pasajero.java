@@ -13,13 +13,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
+@Builder
 public class Pasajero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private  String nombre;
+    private  String apellido;
     private String nid;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)

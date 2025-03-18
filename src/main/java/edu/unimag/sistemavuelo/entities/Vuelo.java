@@ -7,12 +7,10 @@ import java.util.*;
 
 @Entity
 @Table(name = "vuelos")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-
+@Builder
 public class Vuelo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,4 +32,10 @@ public class Vuelo {
     )
     private List<Aerolinea> aerolineas= new ArrayList<>();
 
+    public List<Aerolinea> getAerolineas() {
+        if (this.aerolineas == null) {
+            this.aerolineas = new ArrayList<>();
+        }
+        return this.aerolineas;
+    }
 }

@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class Pasaporte {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

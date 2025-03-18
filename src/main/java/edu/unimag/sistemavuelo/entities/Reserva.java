@@ -12,7 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
+@Builder
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
