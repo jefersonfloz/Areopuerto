@@ -87,7 +87,7 @@ class PasaporteRepositoryTest {
     void testFindByIdOrderByIdDesc() {
         List<Pasaporte> pasaportes = pasaporteRepository.findByIdOrderByIdDesc(pasaporte2.getId());
         assertFalse(pasaportes.isEmpty());
-        assertEquals(pasaporte2.getId(), pasaportes.get(0).getId());
+        assertEquals(pasaporte2.getId(), pasaportes.getFirst().getId());
     }
 
     @Test
@@ -108,7 +108,7 @@ class PasaporteRepositoryTest {
     void testObtenerPasaportesSinPasajero() {
         List<Pasaporte> pasaportesSinPasajero = pasaporteRepository.obtenerPasaportesSinPasajero();
         assertEquals(1, pasaportesSinPasajero.size());
-        assertEquals("P003", pasaportesSinPasajero.get(0).getNumero());
+        assertEquals("P003", pasaportesSinPasajero.getFirst().getNumero());
     }
 
 
@@ -122,7 +122,7 @@ class PasaporteRepositoryTest {
     void testObtenerTodosOrdenadosPorIdDesc() {
         List<Pasaporte> pasaportes = pasaporteRepository.obtenerTodosOrdenadosPorIdDesc();
         assertEquals(3, pasaportes.size());
-        assertEquals("P003", pasaportes.get(0).getNumero());
+        assertEquals("P003", pasaportes.getFirst().getNumero());
     }
 
     @Test

@@ -64,7 +64,7 @@ class AerolineaRepositoryTest {
 
     @Test
     void testFindById() {
-        Aerolinea aerolinea = aerolineaRepository.findByNombre("Avianca").get(0);
+        Aerolinea aerolinea = aerolineaRepository.findByNombre("Avianca").getFirst();
         Optional<Aerolinea> result = aerolineaRepository.findById(aerolinea.getId());
         assertTrue(result.isPresent(), "No se encontró la aerolínea por ID");
         assertEquals("Avianca", result.get().getNombre());
@@ -73,7 +73,7 @@ class AerolineaRepositoryTest {
     @Test
     @Transactional
     void testUpdateAerolineaNombreById() {
-        Aerolinea aerolinea = aerolineaRepository.findByNombre("LATAM").get(0);
+        Aerolinea aerolinea = aerolineaRepository.findByNombre("LATAM").getFirst();
         aerolineaRepository.updateAerolineaNombreById(aerolinea.getId(), "LATAM Airlines");
 
         // Refrescar la entidad desde la base de datos
@@ -89,7 +89,7 @@ class AerolineaRepositoryTest {
     @Test
     @Transactional
     void testDeleteAerolineaById() {
-        Aerolinea aerolinea = aerolineaRepository.findByNombre("Avianca").get(0);
+        Aerolinea aerolinea = aerolineaRepository.findByNombre("Avianca").getFirst();
         aerolineaRepository.deleteAerolineaById(aerolinea.getId());
 
         // Refrescar la entidad desde la base de datos
@@ -105,7 +105,7 @@ class AerolineaRepositoryTest {
     void testFindByNombreStartingWith() {
         List<Aerolinea> aerolineas = aerolineaRepository.findByNombreStartingWith("J");
         assertFalse(aerolineas.isEmpty(), "No se encontraron aerolíneas que comiencen con 'J'");
-        assertEquals("Jetsmart", aerolineas.get(0).getNombre());
+        assertEquals("Jetsmart", aerolineas.getFirst().getNombre());
     }
 
     @Test
@@ -181,7 +181,7 @@ class AerolineaRepositoryTest {
         // Realizar la consulta
         List<Aerolinea> aerolineas = aerolineaRepository.findAerolineasByVuelosNumeroVuelo(numeroVuelo);
         assertFalse(aerolineas.isEmpty(), "No se encontró aerolínea con el número de vuelo especificado");
-        assertEquals("Avianca", aerolineas.get(0).getNombre());
+        assertEquals("Avianca", aerolineas.getFirst().getNombre());
     }
 
 }

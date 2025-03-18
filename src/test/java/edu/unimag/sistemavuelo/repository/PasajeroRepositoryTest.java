@@ -35,7 +35,7 @@ class PasajeroRepositoryTest {
     private EntityManager entityManager; //permite interactuar con la base de datos, siempre usar cundo se ponga @Transactional
 
     private Pasajero pasajero;
-    private UUID codigoReserva = UUID.randomUUID();
+    private final UUID codigoReserva = UUID.randomUUID();
 
     @BeforeEach
     void setUp() {
@@ -57,7 +57,7 @@ class PasajeroRepositoryTest {
     void testFindByNid() {
         List<Pasajero> pasajeros = pasajeroRepository.findByNid("123456");
         assertFalse(pasajeros.isEmpty());
-        assertEquals("Juan", pasajeros.get(0).getNombre());
+        assertEquals("Juan", pasajeros.getFirst().getNombre());
     }
 
     @Test
@@ -79,7 +79,7 @@ class PasajeroRepositoryTest {
         entityManager.flush();
         entityManager.clear();
         List<Pasajero> pasajeros = pasajeroRepository.findByNid("123456");
-        assertEquals("Carlos", pasajeros.get(0).getNombre());
+        assertEquals("Carlos", pasajeros.getFirst().getNombre());
     }
 
 
@@ -90,14 +90,14 @@ class PasajeroRepositoryTest {
         entityManager.flush();
         entityManager.clear();
         List<Pasajero> pasajeros = pasajeroRepository.findByNombre("Juan");
-        assertEquals("Lopez", pasajeros.get(0).getApellido());
+        assertEquals("Lopez", pasajeros.getFirst().getApellido());
     }
 
     @Test
     void testFindPasajerosByCodigoReserva() {
         List<Pasajero> pasajeros = pasajeroRepository.findPasajerosByCodigoReserva(codigoReserva);
         assertFalse(pasajeros.isEmpty());
-        assertEquals("Juan", pasajeros.get(0).getNombre());
+        assertEquals("Juan", pasajeros.getFirst().getNombre());
     }
 
     @Test

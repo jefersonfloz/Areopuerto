@@ -53,15 +53,15 @@ class VueloRepositoryTest {
     public void testFindByOrigenAndDestino() {
         List<Vuelo> vuelos = vueloRepository.findByOrigenAndDestino("New York", "Los Angeles");
         assertEquals(1, vuelos.size());
-        assertEquals("New York", vuelos.get(0).getOrigen());
-        assertEquals("Los Angeles", vuelos.get(0).getDestino());
+        assertEquals("New York", vuelos.getFirst().getOrigen());
+        assertEquals("Los Angeles", vuelos.getFirst().getDestino());
     }
 
     @Test
     public void testFindByDestinoContaining() {
         List<Vuelo> vuelos = vueloRepository.findByDestinoContaining("Los");
         assertEquals(1, vuelos.size());
-        assertEquals("Los Angeles", vuelos.get(0).getDestino());
+        assertEquals("Los Angeles", vuelos.getFirst().getDestino());
     }
 
     @Test
@@ -74,7 +74,7 @@ class VueloRepositoryTest {
         // Buscar vuelos con reservas
         List<Vuelo> vuelosConReservas = vueloRepository.findByReservasIsNotEmpty();
         assertEquals(1, vuelosConReservas.size());
-        assertEquals(vuelo1.getNumeroVuelo(), vuelosConReservas.get(0).getNumeroVuelo());
+        assertEquals(vuelo1.getNumeroVuelo(), vuelosConReservas.getFirst().getNumeroVuelo());
     }
 
     @Test
@@ -111,14 +111,14 @@ class VueloRepositoryTest {
         // Buscar vuelos con al menos 1 reserva
         List<Vuelo> vuelosConReservas = vueloRepository.buscarConMinimoDeReservas(1);
         assertEquals(1, vuelosConReservas.size());
-        assertEquals(vuelo1.getNumeroVuelo(), vuelosConReservas.get(0).getNumeroVuelo());
+        assertEquals(vuelo1.getNumeroVuelo(), vuelosConReservas.getFirst().getNumeroVuelo());
     }
 
     @Test
     public void testListarPorOrigenOrdenadoPorDestino() {
         List<Vuelo> vuelos = vueloRepository.listarPorOrigenOrdenadoPorDestino("New York");
         assertEquals(1, vuelos.size());
-        assertEquals("Los Angeles", vuelos.get(0).getDestino());
+        assertEquals("Los Angeles", vuelos.getFirst().getDestino());
     }
 
     @Test
