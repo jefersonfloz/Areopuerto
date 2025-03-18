@@ -1,7 +1,6 @@
 package edu.unimag.sistemavuelo.repository;
 
 import edu.unimag.sistemavuelo.TestcontainersConfiguration;
-import edu.unimag.sistemavuelo.entities.Aerolinea;
 import edu.unimag.sistemavuelo.entities.Pasajero;
 import edu.unimag.sistemavuelo.entities.Pasaporte;
 import edu.unimag.sistemavuelo.entities.Reserva;

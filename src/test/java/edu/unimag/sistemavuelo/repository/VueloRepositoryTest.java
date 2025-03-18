@@ -1,10 +1,8 @@
 package edu.unimag.sistemavuelo.repository;
 
 import edu.unimag.sistemavuelo.TestcontainersConfiguration;
-import edu.unimag.sistemavuelo.entities.Aerolinea;
 import edu.unimag.sistemavuelo.entities.Reserva;
 import edu.unimag.sistemavuelo.entities.Vuelo;
-import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
