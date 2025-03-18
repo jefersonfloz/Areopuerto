@@ -27,7 +27,7 @@ class AerolineaRepositoryTest {
     @Autowired
     private AerolineaRepository aerolineaRepository;
 
-    List<Vuelo>  vuelos= new LinkedList<>();;
+    List<Vuelo>  vuelos= new LinkedList<>();
     Aerolinea aereolinea1;
     Aerolinea aereolinea2;
 
