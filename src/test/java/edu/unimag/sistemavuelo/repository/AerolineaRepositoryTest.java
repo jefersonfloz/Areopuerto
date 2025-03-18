@@ -42,8 +42,8 @@ class AerolineaRepositoryTest {
         aerolineaRepository.deleteAll();
         vueloRepository.deleteAll();
 
-        Vuelo vuelo1 = Vuelo.builder().origen("Santa Marta").destino("Bogotá").build();
-        Vuelo vuelo2 = Vuelo.builder().origen("Bogotá").destino("Santa Marta").build();
+        Vuelo vuelo1 = Vuelo.builder().numeroVuelo(UUID.randomUUID()).origen("Santa Marta").destino("Bogotá").build();
+        Vuelo vuelo2 = Vuelo.builder().numeroVuelo(UUID.randomUUID()).origen("Bogotá").destino("Santa Marta").build();
         vuelos.add(vuelo1);
         vuelos.add(vuelo2);
         vueloRepository.saveAll(vuelos);
@@ -54,14 +54,6 @@ class AerolineaRepositoryTest {
         Aerolinea latam = Aerolinea.builder().nombre("LATAM").build();
 
         aerolineaRepository.saveAll(List.of(aereolinea1, aereolinea2, avianca, latam));
-    }
-
-
-    @AfterEach
-    void tearDown() {
-        // Para limpiar después de cada test.
-        aerolineaRepository.deleteAll();
-        vueloRepository.deleteAll();
     }
 
     @Test

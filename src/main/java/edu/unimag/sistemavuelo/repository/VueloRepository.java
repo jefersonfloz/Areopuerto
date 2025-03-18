@@ -19,6 +19,9 @@ public interface VueloRepository extends JpaRepository<Vuelo, Long> {
     // Buscar vuelos sin reservas
     List<Vuelo> findByReservasIsEmpty();
 
+    List<Vuelo> findByOrigenAndNumeroVuelo(String origen, UUID numeroVuelo);
+
+
 
     //JPQL
     @Query("SELECT v FROM Vuelo v WHERE v.numeroVuelo = ?1")
